@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>employee</title>
+</head>
+<body>
+    {% if emp %}
+    <table>
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+    </table> 
+        <h1>Employee Details</h1>
+        {% for i in emp %}
+            {{i.empid}}
+            {{i.empname}}
+            {{i.empemail}}
+        {% endfor %}
+    {% else %}
+        <h1>no data found</h1>
+    {% endif %}
+</body>
+</html>

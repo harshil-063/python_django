@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock title %}</title>
+
+    <link rel="stylesheet" href="{% static 'core/css/all.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.css' %}">
+    {% block basecss %} 
+        <link rel="stylesheet" href="{% static 'core/css/style.css' %}"> 
+    {% endblock basecss %}
+
+    {% block coursecss %} {% endblock coursecss %}
+</head>
+<body>
+    {% include 'base/navbar.html' %}
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <i class="fas fa-air-freshener"></i>
+
+    {% block content %} {% endblock content %}
+    {% block content2 %} {% endblock content2 %}
+    {% block content3 %} {% endblock content3 %}
+    <script src="{% static 'core/js/jquery.js' %}"></script>
+    <script src="{% static 'core/js/popper.js' %}"></script>
+    <script src="{% static 'core/js/bootstrap.js' %}"></script>
+    <script src="{% static 'core/js/all.min.js' %}"></script>
+</body>
+</html>

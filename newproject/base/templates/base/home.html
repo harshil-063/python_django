@@ -1,0 +1,9 @@
+
+{% extends 'base/basic.html' %}
+{% block title %}{{block.super}}Home{% endblock title %}
+
+{% block content %} 
+    <h2>Welcome to our Home Page</h2>
+    {% include 'base/topcourses.html' with p='PHP' %}
+{% endblock content %}
+

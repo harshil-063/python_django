@@ -7,6 +7,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 # from django.views.decorators.cache import cache_page
 from django.core.cache import cache
+from student import signals
+
+
 
 # Create your views here.
 def setcookie(request):
@@ -68,11 +71,11 @@ def deletetestcookie(request):
     request.session.delete_test_cookie()
     return render(request,'student/deltestcookies.html')
 
-def home(request):
-   ct = request.session.get('count',0)
-   newcount = ct+1
-   request.session['count'] = newcount
-   return render(request,'student/home.html',{'c':newcount})
+# def home(request):
+#    ct = request.session.get('count',0)
+#    newcount = ct+1
+#    request.session['count'] = newcount
+#    return render(request,'student/home.html',{'c':newcount})
 
 
 # @cache_page(30)
@@ -102,3 +105,15 @@ def profile(request):
         cache.set('movie','RRR',30)
         mv=cache.get('movie')
         return render(request,'student/course.html',{'fm':mv})
+
+
+
+# def home(request):
+#     # a=10/0
+#     # return HttpResponse("hello")
+#     signals.notification.send(sender=None,request=request,user=['harshil','kumbhani'])
+#     return HttpResponse("this is home page")
+
+def home(request):
+    print("this is view")
+    return HttpResponse("this is view code")

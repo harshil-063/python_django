@@ -30,8 +30,9 @@ urlpatterns = [
     path('settc/',views.settestcookie),
     path('checktc/',views.checktestcookie),
     path('deltc/',views.deletetestcookie),
-    path('home/',views.home),
+    # path('home/',views.home),
     path('course/',cache_page(50)(views.course)),
     path('contact/',views.contact),
     path('profile/',views.profile),
+    path('home/',views.home),
 ]

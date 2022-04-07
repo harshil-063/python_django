@@ -13,7 +13,7 @@ def login_success(sender,request,user, **kwargs):
 
     ct = cache.get('count',0,version=user.pk)
     newcount = ct+1
-    
+
     cache.set('count',newcount,60*60*24,version=user.pk)
 
     print(f"user version={user.pk}")
@@ -49,13 +49,13 @@ def login_failed(sender,request,credentials, **kwargs):
 # user_logged_out.connect(log_out,sender=User)
 
 # pre save signal
-# @receiver(pre_save,sender=User)
-# def at_beginning_save(sender,instance, **kwargs):
-#     print("===========================================================================================")
-#     print(".............At Beginning save............")
-#     print(f"sender = {sender}")
-#     print(f"instance = {instance}")
-#     print(f"kwargs={kwargs}")
+@receiver(pre_save,sender=User)
+def at_beginning_save(sender,instance, **kwargs):
+    print("===========================================================================================")
+    print(".............At Beginning save............")
+    print(f"sender = {sender}")
+    print(f"instance = {instance}")
+    print(f"kwargs={kwargs}")
 #pre_save.connect(at_beginning_save,sender=at_beginning_save)
 
 # post save signal

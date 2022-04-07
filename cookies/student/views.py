@@ -1,6 +1,8 @@
 from datetime import datetime, timedelta
+from distutils.log import info
 from email.policy import default
 from ensurepip import version
+from multiprocessing import context
 from unicodedata import name
 from urllib import response
 from django.http import HttpResponse, HttpResponseRedirect
@@ -8,7 +10,7 @@ from django.shortcuts import render
 # from django.views.decorators.cache import cache_page
 from django.core.cache import cache
 from student import signals
-
+from django.template.response import TemplateResponse
 
 
 # Create your views here.
@@ -21,6 +23,7 @@ def setcookie(request):
 def getcookie(request):
     name = request.get_signed_cookie('name',salt='nmm')
     return render(request,'student/getcookie.html',{'name':name})
+
 
 def delcookie(request):
     delete = render(request,'student/delcookie.html')
@@ -116,4 +119,11 @@ def profile(request):
 
 def home(request):
     print("this is view")
-    return HttpResponse("this is view code")
+    return HttpResponse("this is home page")
+
+
+def user_info(request):
+    print("i am user info view")
+    info = {'name':'harshil','surname':'patel'}
+    print(info.get('name'))
+    return TemplateResponse(request,'employee/user.html',info)

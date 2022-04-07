@@ -16,20 +16,33 @@
         <th>Marks</th>
         <th>Pass_date</th>
 
-        <tr>
+        <!-- <tr>
+            
             <td>{{students.id}}</td>
             <td>{{students.name}}</td>
             <td>{{students.roll}}</td>
             <td>{{students.city}}</td>
             <td>{{students.marks}}</td>
             <td>{{students.pass_date}}</td>
+        </tr> -->
+
+        {% for st in students%}
+        <tr>
+            <td>{{st.id}}</td>
+            <td>{{st.name}}</td>
+            <td>{{st.roll}}</td>
+            <td>{{st.city}}</td>
+            <td>{{st.marks}}</td>
+            <td>{{st.pass_date}}</td>
         </tr>
+        {% endfor %}
 
-
-
-
-       
     </table>
-    
+    <h3>Average:{{average}}</h3>
+    <h3>Average Marks:{{average.marks__avg}}</h3>
+    <h3>Sum of Marks:{{sum.marks__sum}}</h3>
+    <h3>Minimum Marks:{{min.marks__min}}</h3>
+    <h3>Maximum Marks:{{max.marks__max}}</h3>
+    <h3>Total:{{count.marks__count}}</h3>
 </body>
 </html>

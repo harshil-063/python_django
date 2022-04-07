@@ -1,4 +1,4 @@
-"""cookies URL Configuration
+"""miproject URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -13,27 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django import views
 from django.contrib import admin
 from django.urls import path
-from student import views
-from django.views.decorators.cache import cache_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('setc/',views.setcookie),
-    path('getc/',views.getcookie),
-    path('delc/',views.delcookie),
-    path('sets/',views.setsession),
-    path('gets/',views.getsession),
-    path('dels/',views.delsession),
-    path('settc/',views.settestcookie),
-    path('checktc/',views.checktestcookie),
-    path('deltc/',views.deletetestcookie),
-    # path('home/',views.home),
-    path('course/',cache_page(50)(views.course)),
-    path('contact/',views.contact),
-    path('profile/',views.profile),
-    path('home/',views.home),
-    path('user/',views.user_info),
 ]

@@ -16,6 +16,7 @@ class StudentRegestration(forms.ModelForm):
     class Meta:
         model = User
         fields = ['name','email','password']
+        
         # labels = {'name':'enter name','email':'enter email','password':'enter password'}
         # help_texts = {'name':'enter your full name','email':'enter your email'}
         error_messages = {'name':{'required':'name required'},'email':{'required':'email required'}}
@@ -25,8 +26,6 @@ class StudentRegestration(forms.ModelForm):
             'email':forms.TextInput(attrs={'class':'myclass','placeholder':'enter your email'}),
             'password':forms.PasswordInput(attrs={'class':'myclass','placeholder':'enter your password'})
             }
-
-
 
 # class StudentRegestration(forms.Form):
 #     # name = forms.CharField(min_length=5,max_length=10,error_messages={'required':'name is required'},strip=False)
